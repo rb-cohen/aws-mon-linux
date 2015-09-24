@@ -55,8 +55,6 @@ Install git, unzip and jre.
 
 ```
 apt-get install git
-apt-get install unzip
-apt-get install default-jre
 ```
 
 
