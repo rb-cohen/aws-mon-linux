@@ -348,7 +348,7 @@ if [ $LOAD_AVE1 -eq 1 ]; then
         echo "loadave1:$loadave1"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "LoadAverage1Min" --value "$loadave1" --unit "Count" $CLOUDWATCH_OPTS 
+        aws cloudwatch put-metric-data --region $region --metric-name "LoadAverage1Min" --value "$loadave1" --unit "Count" $CLOUDWATCH_OPTS 
     fi
 fi
 
@@ -358,7 +358,7 @@ if [ $LOAD_AVE5 -eq 1 ]; then
         echo "loadave5:$loadave5"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "LoadAverage5Min" --value "$loadave5" --unit "Count" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "LoadAverage5Min" --value "$loadave5" --unit "Count" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -368,7 +368,7 @@ if [ $LOAD_AVE15 -eq 1 ]; then
         echo "loadave15:$loadave15"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "LoadAverage15Min" --value "$loadave15" --unit "Count" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "LoadAverage15Min" --value "$loadave15" --unit "Count" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -379,7 +379,7 @@ if [ $CONTEXT_SWITCH -eq 1 ]; then
         echo "context_switch:$context_switch"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "ContextSwitch" --value "$context_switch" --unit "Count" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "ContextSwitch" --value "$context_switch" --unit "Count" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -390,7 +390,7 @@ if [ $INTERRUPT -eq 1 ]; then
         echo "interrupt:$interrupt"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "Interrupt" --value "$interrupt" --unit "Count" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "Interrupt" --value "$interrupt" --unit "Count" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -401,7 +401,7 @@ if [ $CPU_US -eq 1 ]; then
         echo "cpu_us:$cpu_us"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "CpuUser" --value "$cpu_us" --unit "Percent" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "CpuUser" --value "$cpu_us" --unit "Percent" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -411,7 +411,7 @@ if [ $CPU_SY -eq 1 ]; then
         echo "cpu_sy:$cpu_sy"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "CpuUser" --value "$cpu_sy" --unit "Percent" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "CpuUser" --value "$cpu_sy" --unit "Percent" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -421,7 +421,7 @@ if [ $CPU_ID -eq 1 ]; then
         echo "cpu_id:$cpu_id"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "CpuIdle" --value "$cpu_id" --unit "Percent" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "CpuIdle" --value "$cpu_id" --unit "Percent" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -431,7 +431,7 @@ if [ $CPU_WA -eq 1 ]; then
         echo "cpu_wa:$cpu_wa"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "CpuWait" --value "$cpu_wa" --unit "Percent" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "CpuWait" --value "$cpu_wa" --unit "Percent" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -442,7 +442,7 @@ if [ $CPU_ST -eq 1 ]; then
             echo "cpu_st:$cpu_st"
         fi
         if [ $VERIFY -eq 0 ]; then
-            aws cloudwatch put-metric-data --metric-name "CpuSteal" --value "$cpu_st" --unit "Percent" $CLOUDWATCH_OPTS
+            aws cloudwatch put-metric-data --region $region --metric-name "CpuSteal" --value "$cpu_st" --unit "Percent" $CLOUDWATCH_OPTS
         fi
     fi
 fi
@@ -483,7 +483,7 @@ if [ $MEM_UTIL -eq 1 -a $mem_total -gt 0 ]; then
         echo "mem_util:$mem_util"
     fi
     if [ $VERIFY -eq 0 -a -n "$mem_util" ]; then
-        aws cloudwatch put-metric-data --metric-name "MemoryUtilization" --value "$mem_util" --unit "Percent" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "MemoryUtilization" --value "$mem_util" --unit "Percent" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -493,7 +493,7 @@ if [ $MEM_USED -eq 1 ]; then
         echo "mem_used:$mem_used"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "MemoryUsed" --value "$mem_used" --unit "$MEM_UNITS" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "MemoryUsed" --value "$mem_used" --unit "$MEM_UNITS" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -503,7 +503,7 @@ if [ $MEM_AVAIL -eq 1 ]; then
         echo "mem_avail:$mem_avail"
     fi
     if [ $VERIFY -eq 0 ]; then        
-        aws cloudwatch put-metric-data --metric-name "MemoryAvailable" --value "$mem_avail" --unit "$MEM_UNITS" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "MemoryAvailable" --value "$mem_avail" --unit "$MEM_UNITS" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -513,7 +513,7 @@ if [ $SWAP_UTIL -eq 1 -a $swap_total -gt 0 ]; then
         echo "swap_util:$swap_util"
     fi
     if [ $VERIFY -eq 0 -a -n "$swap_util" ]; then
-        aws cloudwatch put-metric-data --metric-name "SwapUtilization" --value "$swap_util" --unit "Percent" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "SwapUtilization" --value "$swap_util" --unit "Percent" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -523,7 +523,7 @@ if [ $SWAP_USED -eq 1 ]; then
         echo "swap_used:$swap_used"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "SwapUsed" --value "$swap_used" --unit "$MEM_UNITS" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "SwapUsed" --value "$swap_used" --unit "$MEM_UNITS" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -533,7 +533,7 @@ if [ $SWAP_AVAIL -eq 1 ]; then
         echo "swap_avail:$swap_avail"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "SwapAvailable" --value "$swap_avail" --unit "$MEM_UNITS" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "SwapAvailable" --value "$swap_avail" --unit "$MEM_UNITS" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -557,7 +557,7 @@ if [ $DISK_SPACE_UTIL -eq 1 -a -n "$DISK_PATH" -a $disk_total -gt 0 ]; then
         echo "disk_util:$disk_util"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "DiskSpaceUtilization$DISK_METRIC_SUFFIX" --value "$disk_util" --unit "Percent" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "DiskSpaceUtilization$DISK_METRIC_SUFFIX" --value "$disk_util" --unit "Percent" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -567,7 +567,7 @@ if [ $DISK_SPACE_USED -eq 1 -a -n "$DISK_PATH" ]; then
         echo "disk_used:$disk_used"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "DiskSpaceUsed$DISK_METRIC_SUFFIX" --value "$disk_used" --unit "$DISK_SPACE_UNITS" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "DiskSpaceUsed$DISK_METRIC_SUFFIX" --value "$disk_used" --unit "$DISK_SPACE_UNITS" $CLOUDWATCH_OPTS
     fi
 fi
 
@@ -577,7 +577,6 @@ if [ $DISK_SPACE_AVAIL -eq 1 -a -n "$DISK_PATH" ]; then
         echo "disk_avail:$disk_avail"
     fi
     if [ $VERIFY -eq 0 ]; then
-        aws cloudwatch put-metric-data --metric-name "DiskSpaceAvailable$DISK_METRIC_SUFFIX" --value "$disk_avail" --unit "$DISK_SPACE_UNITS" $CLOUDWATCH_OPTS
+        aws cloudwatch put-metric-data --region $region --metric-name "DiskSpaceAvailable$DISK_METRIC_SUFFIX" --value "$disk_avail" --unit "$DISK_SPACE_UNITS" $CLOUDWATCH_OPTS
     fi
 fi
-
